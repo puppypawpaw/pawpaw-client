@@ -73,10 +73,13 @@ export default function PlaceContents({ place }: { place: Place }) {
 
   useEffect(() => {
     setPlaces([place]);
-    setCenter({
-      lat: place.position.latitude,
-      lng: place.position.longitude,
-    });
+    // map이 렌더링 되고 나서 center를 변경하기 위함
+    setTimeout(() => {
+      setCenter({
+        lat: place.position.latitude,
+        lng: place.position.longitude,
+      });
+    }, 500);
   }, []);
 
   return (
