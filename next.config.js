@@ -21,6 +21,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: '*',
       },
+      {
+        protocol: 'http',
+        hostname: 'blogfiles.naver.net',
+      },
     ],
     formats: ['image/avif', 'image/webp'],
     domains: ['via.placeholder.com', 'k.kakaocdn.net'],
