@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useEffect } from 'react';
 import { Place } from '@/types/types';
 import { usePlaceModalStore } from '@/hooks/stores/usePlaceModalStore';
 import { shallow } from 'zustand/shallow';
@@ -13,6 +14,11 @@ export default function PlaceResult({ item }: { item: Place }) {
     (state) => ({ isOpen: state.isOpen, setIsOpen: state.setIsOpen }),
     shallow,
   );
+
+  // 상세 장소 확인시 모달이 닫혀있을 때, 모달을 열어준다.
+  useEffect(() => {
+    setIsOpen(true);
+  }, []);
 
   return (
     <>
