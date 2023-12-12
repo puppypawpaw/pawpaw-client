@@ -66,11 +66,11 @@ export default function SearchResult({ place }: Props) {
   return (
     <>
       {isOpen && (
-        <div className="w-[460px] h-full bg-white shadow-searchTab absolute top-0 left-0 z-[1] pt-[120px]">
+        <div className="w-[460px] h-full bg-white shadow-searchTab absolute top-0 left-0 z-[1] pt-[120px] flex justify-center items-center">
           {isLoading ? (
-            <LoadingIcon className="w-5 h-5 animate-spin" />
+            <LoadingIcon className="w-7 h-7 animate-spin fill-primary-200" />
           ) : (
-            <div className="pb-4 h-full px-[30px] overflow-y-scroll">
+            <div className="pb-4 w-full h-full px-[30px] overflow-y-scroll">
               <p className="header4 text-grey-800 mb-4">
                 검색결과{' '}
                 <span className="text-primary-200">{`${places.length}건`}</span>
