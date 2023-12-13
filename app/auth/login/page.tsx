@@ -1,7 +1,8 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
 import SocialButton from '@/components/pages/auth/SocialButton';
 import BottomButton from '@/components/pages/auth/BottomButton';
-import { Metadata } from 'next';
+import TestLoginModal from '@/components/ui/Modal/TestLoginModal';
 
 export const metadata: Metadata = {
   title: '로그인',
@@ -52,6 +53,7 @@ export default function LoginPage() {
           </Link>
         </div>
       </BottomButton>
+      <TestLoginModal />
     </>
   );
 }
