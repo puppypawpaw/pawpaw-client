@@ -8,7 +8,7 @@ import { ReviewMutateParams } from '@/types/types';
 import Toast from '@/utils/notification';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-export default function useMutateReview({
+export default function useMutateMyPlaceReview({
   closeModal,
   placeId,
   mode,
@@ -61,7 +61,9 @@ export default function useMutateReview({
     },
     onSuccess: () => {
       Toast.success('리뷰가 등록되었어요.');
-      return queryClient.invalidateQueries([queryKeys.REVIEW_LIST, placeId]);
+      queryClient.invalidateQueries([queryKeys.PLACE_REVIEW_LIST, placeId]);
+      queryClient.invalidateQueries([queryKeys.MY_PLACE_REVIEW, placeId]);
+      queryClient.invalidateQueries([queryKeys.DETAILED_PLACE_INFO, placeId]);
     },
     onSettled: () => {
       closeModal();

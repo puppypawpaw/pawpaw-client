@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { REVIEW_KEYWORDS } from '@/constant/place';
 import WarningCircle from '@/public/svgs/Pawzone/warning_circle.svg';
 import Star from '@/public/svgs/Pawzone/star.svg';
 import LoadingIcon from '@/public/svgs/loading.svg';
-import Toast from '@/utils/notification';
-import useGetReviewList from '@/hooks/queries/useGetReviewList';
-import { deleteMyPlaceReview, getMyPlaceReview } from '@/service/pawzone';
-import { Review, Place } from '@/types/types';
+import useGetPlaceReviewList from '@/hooks/queries/useGetPlaceReviewList';
+import useGetMyPlaceReview from '@/hooks/queries/useGetMyPlaceReview';
+import useDeleteMyPlaceReview from '@/hooks/mutations/useDeleteMyPlaceReview';
+import { Place } from '@/types/types';
 import ReviewModal from '@/components/ui/Modal/ReviewModal';
 import RatioBar from './RatioBar';
 import ReviewCard from './ReviewCard';
@@ -30,7 +30,6 @@ export default function ReviewContent({
     imageUrlList,
   },
 }: Props) {
-  const [myReview, setMyReview] = useState<Review | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const ratioArr = [
     scenicRatio,
@@ -40,30 +39,13 @@ export default function ReviewContent({
     cleanRatio,
     safeRatio,
   ];
-  const { data, isLoading, Observer } = useGetReviewList({
+  const { data, isLoading, Observer } = useGetPlaceReviewList({
     placeId: id,
     size: 5,
   });
-  const handleReviewMutate = () => setIsOpen(!isOpen);
-  const handleReviewDelete = async () => {
-    try {
-      await deleteMyPlaceReview({ placeId: id });
-      setMyReview(null);
-      Toast.success('리뷰가 삭제되었습니다.');
-    } catch (e) {
-      if (e instanceof Error) {
-        Toast.error(e.message);
-      }
-    }
-  };
-  useEffect(() => {
-    const fetchReviewList = async () => {
-      const result = await getMyPlaceReview({ placeId: id });
-      setMyReview(result);
-    };
-
-    fetchReviewList();
-  }, [id]);
+  const myReview = useGetMyPlaceReview(id);
+  const deleteMyPlaceReviewMutate = useDeleteMyPlaceReview(id);
+  const handleReviewButton = () => setIsOpen(!isOpen);
 
   const otherReviews = data?.pages.flatMap((item) => item.content);
   const reviews = [...(myReview ? [myReview] : []), ...(otherReviews ?? [])];
@@ -76,7 +58,7 @@ export default function ReviewContent({
           <p className="body-4 text-grey-300">아직 등록된 리뷰가 없습니다.</p>
           <ReviewButton
             mode={myReview ? 'edit' : 'write'}
-            handleToggle={handleReviewMutate}
+            handleToggle={handleReviewButton}
           />
         </div>
       );
@@ -92,10 +74,13 @@ export default function ReviewContent({
               </p>
             </div>
             <div className="flex items-center gap-1">
-              <ReviewButton mode="delete" handleToggle={handleReviewDelete} />
+              <ReviewButton
+                mode="delete"
+                handleToggle={deleteMyPlaceReviewMutate}
+              />
               <ReviewButton
                 mode={myReview ? 'edit' : 'write'}
-                handleToggle={handleReviewMutate}
+                handleToggle={handleReviewButton}
               />
             </div>
           </div>

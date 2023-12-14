@@ -7,6 +7,22 @@ import {
 } from '@/types/types';
 import { stringify } from 'qs';
 
+// 세부 장소 조회(for client muate)
+export async function getDetailedPlace(placeId: string) {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/place/${placeId}`,
+    {
+      method: 'GET',
+      credentials: 'include',
+    },
+  );
+  if (!response.ok) {
+    throw new Error('장소 정보 획득에 실패하였습니다.');
+  }
+  const data = (await response.json()) as Place;
+  return data;
+}
+
 // 장소 검색
 export async function searchPlace({
   query,
@@ -83,6 +99,7 @@ export async function getMyPlaceReview({
     if (response.status === 401) {
       throw new Error('로그인이 필요한 서비스입니다.');
     } else if (response.status === 404) {
+      // 존재하지 않는 장소 리뷰일 경우 null을 반환한다.
       return null;
     } else {
       throw new Error('장소 리뷰 조회에 실패하였습니다.');
@@ -93,7 +110,7 @@ export async function getMyPlaceReview({
 }
 
 // 내 장소 리뷰 삭제
-export async function deleteMyPlaceReview({ placeId }: { placeId: number }) {
+export async function deleteMyPlaceReview(placeId: number) {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/place/${placeId}/myReview`,
     {

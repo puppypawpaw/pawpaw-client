@@ -5,7 +5,8 @@ import { getPlaceReviewList } from '@/service/pawzone';
 import { ReviewList } from '@/types/types';
 import { useEffect } from 'react';
 
-export default function useGetReviewList({
+// 자신을 제외한 place review list를 가져온다.
+export default function useGetPlaceReviewList({
   placeId,
   size,
 }: {
@@ -14,7 +15,7 @@ export default function useGetReviewList({
 }) {
   const { data, hasNextPage, isLoading, isFetchingNextPage, fetchNextPage } =
     useInfiniteQuery({
-      queryKey: [queryKeys.REVIEW_LIST, placeId],
+      queryKey: [queryKeys.PLACE_REVIEW_LIST, placeId],
       queryFn: ({ pageParam = undefined }): Promise<ReviewList> =>
         getPlaceReviewList({ placeId, beforeReviewId: pageParam, size }),
       staleTime: 1000 * 60,

@@ -12,5 +12,7 @@ export const queryKeys = {
   MY_BOARD_LIST: 'myBoards',
   MY_BOOKMARKED_LIST: 'myBookmarkedBoards',
   USER_INFO: 'userInfo',
-  REVIEW_LIST: 'reviewList',
+  MY_PLACE_REVIEW: 'myReview',
+  PLACE_REVIEW_LIST: 'reviewList',
+  DETAILED_PLACE_INFO: 'detailedPlaceInfo',
 };

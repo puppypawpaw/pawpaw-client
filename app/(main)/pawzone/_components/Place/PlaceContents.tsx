@@ -13,6 +13,7 @@ import Divider from '@/components/ui/Divider';
 import { Place } from '@/types/types';
 import { shallow } from 'zustand/shallow';
 import { useLocationStore } from '@/hooks/stores/useLocationStore';
+import useGetPlaceInfo from '@/hooks/queries/useGetPlaceInfo';
 import { createPlaceBookmark, deletePlaceBookmark } from '@/service/pawzone';
 import Toast from '@/utils/notification';
 import ReviewContent from './ReviewContent';
@@ -21,6 +22,7 @@ import Chip from '../Chip';
 export default function PlaceContents({ place }: { place: Place }) {
   const [isBookmark, setIsBookmark] = useState(place.bookmarked);
   const [isTimeOpen, setIsTimeOpen] = useState(false);
+  const recentPlaceInfo = useGetPlaceInfo(place.id); // 리뷰 작성시 업데이트를 위한 값 사용
   const { setPlaces, setCenter } = useLocationStore(
     (state) => ({
       setCenter: state.setCenter,
@@ -82,6 +84,8 @@ export default function PlaceContents({ place }: { place: Place }) {
     }, 500);
   }, []);
 
+  const recentScore = recentPlaceInfo?.score ?? place.score;
+
   return (
     <div className="px-[30px] pb-[30px] bg-white rounded-t-lg-5 h-full flex flex-col flex-1 gap-4">
       <div className="flex gap-2">
@@ -126,7 +130,7 @@ export default function PlaceContents({ place }: { place: Place }) {
         </div>
         <p className="flex items-center gap-[3px] body2 text-grey-800">
           <Star className="w-[18px] h-[18px] fill-yellow-100" />
-          {place.score ? Math.round(place.score * 10) / 10 : '리뷰 없음'}
+          {recentScore ? Math.round(recentScore * 10) / 10 : '리뷰 없음'}
         </p>
       </div>
       <div className="flex border border-grey-200 rounded-[10px] py-2 items-center">
@@ -167,7 +171,7 @@ export default function PlaceContents({ place }: { place: Place }) {
         </button>
       </div>
       <Divider type="horizontal" className="my-3" />
-      <ReviewContent place={place} />
+      {recentPlaceInfo && <ReviewContent place={recentPlaceInfo} />}
     </div>
   );
 }
