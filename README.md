@@ -1,18 +1,18 @@
 <div style="display: flex;justify-content: start"><img src="./public/ReadMe/PawPawLogo.png" width="300px" alt="pawpaw 로고"></div><br>
 
-# 반려동물 커뮤니티 PAW-PAW
+# 반려동물 커뮤니티 PAW PAW
 
-## 반려동물을 기르는 사람들끼리 소통 할수있는 플랫폼입니다.
+반려동물을 기르는 사람들끼리 소통 할수있는 플랫폼입니다.
 
-[서비스 구경하기🐾](https://www.paw-paw.xyz/)
+[🐾서비스 구경하기🐾](https://www.paw-paw.xyz/)
 
-## 참여 인원
+## 참여 인원(FE)
 
-> |                     Name                      |            Position             |
-> | :-------------------------------------------: | :-----------------------------: |
-> |      [신현석](https://github.com/shseok)      | 로그인, 회원가입, PAWZONE(진행) |
-> | [이지예](https://https://github.com/jiyeeeah) |       게시글, 마이페이지        |
-> |     [정태진](https://github.com/taejinii)     |  커뮤니티 페이지 , 실시간 채팅  |
+> |                     Name                      |              Position               |
+> | :-------------------------------------------: | :---------------------------------: |
+> |      [신현석](https://github.com/shseok)      | 로그인, 회원가입, 반려동물 전용지도 |
+> | [이지예](https://https://github.com/jiyeeeah) |         게시글, 마이페이지          |
+> |     [정태진](https://github.com/taejinii)     |    커뮤니티 페이지 , 실시간 채팅    |
 >
 > <br>
 
@@ -76,12 +76,24 @@
       <th>소셜 로그인 / 회원가입 페이지</th>
     </tr>
     <tr>
-      <td><img width="200px" src="public/ReadMe/JoinMember.gif" alt="간편 로그인 / 회원가입 페이지"/><img width="200px" src="public/ReadMe/ChangeIdPass.gif" alt="아이디 비밀번호 변경"/></td>
+      <td><img width="400px" src="public/ReadMe/JoinMember.gif" alt="간편 로그인 / 회원가입 페이지"/></td>
       <td><img width="400px" src="public/ReadMe/SocialLogin.gif" alt="소셜 로그인 / 회원가입 페이지"/></td>
     </tr>
     <tr>
-      <td>• 이메일 / 비밀번호 로그인<br>• 이메일 찾기 / 비밀번호 변경<br>• 이메일 찾기 / 비밀번호 변경 </td>
+      <td>• 이메일 / 비밀번호 로그인<br>• 회원가입시 약관 동의 > 이메일, 비밀번호 입력 > 본인인증 > 위치 설정 > 프로필 설정 절차 진행</td>
       <td>• google / kakao / naver 로그인<br>• 회원가입시 약관 동의 > 위치 설정 > 프로필 설정 절차 진행<br>• provider에서 제공하는 이름과 이미지 리소스 사용</td>
+    </tr>
+    <tr>
+      <th>이메일 찾기 / 비밀번호 변경 페이지</th>
+      <th>반려동물 전용지도 페이지</th>
+    </tr>
+    <tr>
+      <td><img width="400px" src="public/ReadMe/ChangeIdPass.gif" alt="아이디 비밀번호 변경"/></td>
+      <td><img width="400px" src="public/ReadMe/Pawzone.gif" alt="반려동물 전용 지도"/></td>
+    </tr>
+    <tr>
+      <td>• 이메일 찾기: 가입한 본인 이름과 휴대폰 번호를 입력<br>• 비밀번호 찾기: 가입한 본인 이름과 이메일을 입력 > 이메일에서 비밀번호 변경 주소 확인 > 비밀번호 변경 </td>
+      <td>• 유저 위치기반 반경내 장소검색<br>• 카테고리별 장소검색<br>• 지도 클러스터링을 통해 겹쳐있는 마커를 그룹화<br>• 세부 장소에서 리뷰작성 및 리뷰확인(무한스크롤)<br>• 리뷰작성 및 수정시 다중 이미지 업로드 훅 구현</td>
     </tr>
     <tr>
       <th>마이페이지</th>
