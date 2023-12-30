@@ -10,7 +10,7 @@ const nextConfig = {
     return [
       {
         source: '/endpoint/:path*',
-        destination: `${process.env.NEXT_PUBLIC_DEV_API_URL}/:path*`,
+        destination: `${process.env.SERVER_API_URL}/:path*`,
       },
     ];
   },
