@@ -40,8 +40,19 @@ module.exports = {
           100: '#FFD232',
           30: '#FFD2324D',
         },
-        purple: '#B85FFF',
-        red: '#FF3257',
+        purple: {
+          100: '#A45EFF',
+          30: '#A45EFF4D',
+        },
+        red: {
+          200: '#FF3257',
+          100: '#FF5C5C',
+          30: '#FF5C5C4D',
+        },
+        blue: {
+          100: '#3257FF',
+          30: '#3257FF4D',
+        },
         grey: {
           800: '#1B1D1F',
           700: '#26282B',

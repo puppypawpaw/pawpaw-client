@@ -72,13 +72,13 @@ export default function AuthForm({ setIsActive }: Props) {
   return (
     <form className="w-full">
       <p className="text-grey-400 text-end body4">
-        <span className="text-red">*</span>는 필수 입력 정보입니다.
+        <span className="text-red-200">*</span>는 필수 입력 정보입니다.
       </p>
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-2">
           {/* eslint-disable jsx-a11y/label-has-associated-control */}
           <label htmlFor="id" className="body1 text-grey-800">
-            아이디<span className="text-red">*</span>
+            아이디<span className="text-red-200">*</span>
           </label>
           <div className="flex flex-col gap-1">
             <ValidateInput
@@ -102,14 +102,14 @@ export default function AuthForm({ setIsActive }: Props) {
               })}
             />
             {errors.email && (
-              <p className="text-red ">{errors.email.message}</p>
+              <p className="text-red-200 ">{errors.email.message}</p>
             )}
           </div>
         </div>
         <div className="flex flex-col gap-2">
           {/* eslint-disable jsx-a11y/label-has-associated-control */}
           <label htmlFor="password" className="body1 text-grey-800">
-            비밀번호<span className="text-red">*</span>
+            비밀번호<span className="text-red-200">*</span>
           </label>
           <div className="flex flex-col gap-1">
             <ValidateInput
@@ -132,7 +132,7 @@ export default function AuthForm({ setIsActive }: Props) {
               })}
             />
             {errors.password && (
-              <p className="text-red">{errors.password.message}</p>
+              <p className="text-red-200">{errors.password.message}</p>
             )}
           </div>
         </div>
@@ -150,7 +150,7 @@ export default function AuthForm({ setIsActive }: Props) {
             })}
           />
           {errors.passwordConfirm && (
-            <p className="text-red">{errors.passwordConfirm.message}</p>
+            <p className="text-red-200">{errors.passwordConfirm.message}</p>
           )}
         </div>
       </div>

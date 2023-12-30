@@ -86,7 +86,7 @@ export function BoardCardCommentWrapper({
       <FlexBox className="gap-[9px] w-full">
         <button type="button" onClick={updateLike} aria-label="Like Board">
           <LikeButton
-            className={`w-6 h-6  ${isLiked ? 'fill-red' : 'fill-grey-500'}`}
+            className={`w-6 h-6  ${isLiked ? 'fill-red-200' : 'fill-grey-500'}`}
           />
         </button>
         <input

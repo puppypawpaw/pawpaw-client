@@ -62,7 +62,7 @@ export default function HashTagInput({
           type="text"
           onChange={onChangeTag}
           className={`p-0 border-none w-72 tablet:w-96 focus:ring-0 body1 ${
-            isHashTagNumOver ? 'placeholder:text-red' : ''
+            isHashTagNumOver ? 'placeholder:text-red-200' : ''
           }`}
           placeholder={
             isHashTagNumOver

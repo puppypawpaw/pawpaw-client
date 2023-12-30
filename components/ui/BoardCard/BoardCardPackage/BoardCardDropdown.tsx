@@ -47,7 +47,7 @@ export default function BoardCardDropdown({
         ) : (
           <Dropdown.Item
             event={() => (isReported ? cancelReport() : report())}
-            buttonStyle={isReported ? 'text-red' : ''}
+            buttonStyle={isReported ? 'text-red-200' : ''}
           >
             {isReported ? '신고취소' : '신고하기'}
           </Dropdown.Item>

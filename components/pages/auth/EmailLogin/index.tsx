@@ -33,7 +33,7 @@ export default function EmailLogin({ title }: Props) {
         <div className="mb-10">
           <h1 className="header1 text-center w-full gap-[40px]">{title}</h1>
           {error && (
-            <p className="body3 mt-[30px] text-red break-keep text-center">
+            <p className="body3 mt-[30px] text-red-200 break-keep text-center">
               {error}
             </p>
           )}

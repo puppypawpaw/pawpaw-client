@@ -61,7 +61,7 @@ export default function SearchBar({
           <div className="flex gap-2 items-center">
             <CategoryButton type="RESTAURANT" />
             <CategoryButton type="CAFE" />
-            <CategoryButton type="PARK" />
+            {/* <CategoryButton type="PARK" /> 서버 데이터 없음 */}
           </div>
         )}
       </div>

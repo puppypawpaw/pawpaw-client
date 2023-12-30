@@ -37,6 +37,7 @@ export default function CardList({ list }: Props) {
           sunOpen,
           sunClose,
           sunLastOrder,
+          placeTagList,
         } = place;
         const timeString = getPlaceTimeString({
           mon: { open: monOpen, close: monClose, lastOrder: monLastOrder },
@@ -56,6 +57,7 @@ export default function CardList({ list }: Props) {
             rating={score}
             time={timeString}
             key={place.id}
+            placeTagList={placeTagList}
           />
         );
       })}

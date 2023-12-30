@@ -117,7 +117,7 @@ export default function AddChatRoomModal({ open, onClose }: ModalProps) {
               })}
             />
             {errors.name && (
-              <span className="text-red animate-fadeIn">
+              <span className="text-red-200 animate-fadeIn">
                 {errors.name.message}
               </span>
             )}
@@ -135,7 +135,7 @@ export default function AddChatRoomModal({ open, onClose }: ModalProps) {
               })}
             />
             {errors.description && (
-              <span className="text-red animate-fadeIn">
+              <span className="text-red-200 animate-fadeIn">
                 {errors.description.message}
               </span>
             )}

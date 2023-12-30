@@ -42,6 +42,7 @@ export default function Map() {
       placeId: place.id,
       placeName: place.name,
       placeRating: place.score,
+      placeType: place.type,
     },
     geometry: {
       type: 'Point',
@@ -136,6 +137,7 @@ export default function Map() {
                 placeIndex={cluster.properties.placeId}
                 text={cluster.properties.placeName}
                 rating={cluster.properties.placeRating}
+                type={cluster.properties.placeType}
               />
             );
           })}

@@ -1,4 +1,5 @@
 import { useLocationStore } from '@/hooks/stores/useLocationStore';
+import { PlaceType } from '@/types/types';
 import { OverlayView } from '@react-google-maps/api';
 import Supercluster, { PointFeature } from 'supercluster';
 import { shallow } from 'zustand/shallow';
@@ -8,6 +9,7 @@ export type Properties = {
   placeId: number;
   placeName: string;
   placeRating: number | null;
+  placeType: PlaceType;
 };
 
 export type PointFeatureArray = PointFeature<Properties>[];

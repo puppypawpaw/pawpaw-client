@@ -61,7 +61,7 @@ export default function PwdChangeForm() {
         <div className="flex flex-col gap-2">
           {/* eslint-disable jsx-a11y/label-has-associated-control */}
           <label htmlFor="password" className="body1 text-grey-800">
-            새 비밀번호<span className="text-red">*</span>
+            새 비밀번호<span className="text-red-200">*</span>
           </label>
           <div className="flex flex-col gap-1">
             <ValidateInput
@@ -84,14 +84,14 @@ export default function PwdChangeForm() {
               })}
             />
             {errors.password && (
-              <p className="text-red">{errors.password.message}</p>
+              <p className="text-red-200">{errors.password.message}</p>
             )}
           </div>
           {/* eslint-disable jsx-a11y/label-has-associated-control */}
           <div className="flex flex-col gap-2">
             {/* eslint-disable jsx-a11y/label-has-associated-control */}
             <label htmlFor="password-confirm" className="body1 text-grey-800">
-              비밀번호 확인<span className="text-red">*</span>
+              비밀번호 확인<span className="text-red-200">*</span>
             </label>
             <div className="flex flex-col gap-1">
               <ValidateInput
@@ -108,7 +108,7 @@ export default function PwdChangeForm() {
                 })}
               />
               {errors.passwordConfirm && (
-                <p className="text-red">{errors.passwordConfirm.message}</p>
+                <p className="text-red-200">{errors.passwordConfirm.message}</p>
               )}
             </div>
           </div>

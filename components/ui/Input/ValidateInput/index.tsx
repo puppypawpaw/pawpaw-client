@@ -16,7 +16,7 @@ const ValidateInput = React.forwardRef<HTMLInputElement, InputProps>(
       className,
       {
         'ring-grey-200 focus:ring-grey-200': !error && !success,
-        'ring-red focus:ring-red': error,
+        'ring-red-200 focus:ring-red-200': error,
         'ring-primary-300 focus:ring-primary-300': success,
       },
     );
@@ -30,7 +30,7 @@ const ValidateInput = React.forwardRef<HTMLInputElement, InputProps>(
           {...props}
         />
         {error && (
-          <Alert className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 right-5 fill-red" />
+          <Alert className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 right-5 fill-red-200" />
         )}
         {success && (
           <Check className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 right-5 fill-primary-300" />

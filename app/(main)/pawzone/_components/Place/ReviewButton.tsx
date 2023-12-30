@@ -20,7 +20,7 @@ export default function ReviewButton({ mode, handleToggle }: Props) {
       type="button"
       className={cn(
         'p-2 body2 text-grey-400',
-        mode === 'delete' ? 'text-red' : null,
+        mode === 'delete' ? 'text-red-200' : null,
       )}
       onClick={handleToggle}
     >
@@ -29,7 +29,7 @@ export default function ReviewButton({ mode, handleToggle }: Props) {
         type="horizontal"
         className={cn(
           'h-[1px] bg-grey-400',
-          mode === 'delete' ? 'bg-red' : null,
+          mode === 'delete' ? 'bg-red-200' : null,
         )}
       />
     </button>

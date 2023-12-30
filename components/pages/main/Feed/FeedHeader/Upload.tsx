@@ -53,7 +53,7 @@ export default function Upload({
           />
           {isOverMaxChar ? (
             <FlexBox className="caption2 h-[36px] absolute bottom-0 right-0 bg-primary-50/80 z-10">
-              <span className="text-red">{postText.length}</span>
+              <span className="text-red-200">{postText.length}</span>
               <span className="text-grey-200">/</span>
               <span className="text-grey-500">{maxCharacters}</span>
             </FlexBox>

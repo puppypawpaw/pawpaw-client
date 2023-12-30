@@ -1,5 +1,6 @@
-import MarkerIcon from '@/public/svgs/Pawzone/park.svg';
+import { CATEGORY_ICON } from '@/constant/place';
 import Star from '@/public/svgs/Pawzone/star.svg';
+import { PlaceType } from '@/types/types';
 import { OverlayView } from '@react-google-maps/api';
 import { useRouter } from 'next/navigation';
 
@@ -8,14 +9,22 @@ interface Props {
   text: string;
   rating: number | null;
   placeIndex: number;
+  type: PlaceType;
 }
 
-export default function Marker({ position, text, rating, placeIndex }: Props) {
+export default function Marker({
+  position,
+  text,
+  rating,
+  placeIndex,
+  type,
+}: Props) {
   const getPixelPositionOffset = (width: number, height: number) => ({
     x: -(width / 2),
     y: -(height / 2),
   });
   const router = useRouter();
+  const ButtonIcon = CATEGORY_ICON[type];
 
   return (
     <OverlayView
@@ -32,7 +41,7 @@ export default function Marker({ position, text, rating, placeIndex }: Props) {
         }}
       >
         <div className="bg-primary-200 rounded-full p-2">
-          <MarkerIcon className="w-[22px] h-[22px] fill-white" />
+          <ButtonIcon className="w-[22px] h-[22px] fill-white" />
         </div>
         <div className="flex flex-col">
           <div className="w-max overflow-hidden text-ellipsis">

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Clock from '@/public/svgs/Pawzone/clock.svg';
 import Star from '@/public/svgs/Pawzone/star.svg';
+import { PlaceTagList } from '@/types/types';
 import Chip from '../Chip';
 
 interface Props {
@@ -12,6 +13,7 @@ interface Props {
   address: string;
   time: string;
   rating: number | null;
+  placeTagList: PlaceTagList[];
 }
 
 export default function Card({
@@ -22,14 +24,15 @@ export default function Card({
   address,
   time,
   rating,
+  placeTagList,
 }: Props) {
   return (
     <li className="shadow-chatCard rounded-[10px]">
       <Link href={`/pawzone/place/${idx}`} className="flex flex-col gap-4 p-5">
-        {/* tag 기능 활성화시 적용 */}
-        <div className="flex gap-2">
-          <Chip type="hot" />
-          <Chip type="clean" />
+        <div className="flex gap-2 flex-wrap">
+          {placeTagList.map((tag) => (
+            <Chip type={tag} key={tag} />
+          ))}
         </div>
         <div className="flex gap-4">
           <div className="relative min-w-[120px] w-[120px] h-[120px]">

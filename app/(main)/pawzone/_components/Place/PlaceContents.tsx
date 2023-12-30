@@ -88,9 +88,10 @@ export default function PlaceContents({ place }: { place: Place }) {
 
   return (
     <div className="px-[30px] pb-[30px] bg-white rounded-t-lg-5 h-full flex flex-col flex-1 gap-4">
-      <div className="flex gap-2">
-        <Chip type="hot" />
-        <Chip type="clean" />
+      <div className="flex gap-2 flex-wrap">
+        {place.placeTagList.map((tag) => (
+          <Chip type={tag} key={tag} />
+        ))}
       </div>
       <div className="flex flex-col gap-2">
         <p className="header3 text-grey-800">{place.name}</p>
